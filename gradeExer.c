@@ -77,6 +77,19 @@ isValidGrade(float value)
 int
 getInputs(float aGrades[],int n)
 {
+   int i = 0;
+   float grade;
+
+   while (i < n)
+   {
+     scanf("%f", &grade);
+     if (isValidGrade(grade))
+     {
+       aGrades[i] = grade;
+       i++;
+     }
+   }
+   return i;
 
 }
 
@@ -91,6 +104,12 @@ getInputs(float aGrades[],int n)
 void 
 displayAll(float aGrades[], int n)
 {
+   int i;
+   for (i = 0; i < n; i++)
+   {
+     printf("%.1f ", aGrades[i]);
+   }
+   printf("\n");
 
 }
 
@@ -161,7 +180,7 @@ main()
    int nElem = 0;
    int res;    //you can use this variable to store result of function call if you wish
    
-   nElem = getInputs(aGrades);
+   nElem = getInputs(aGrades, MAX);
    displayAll(aGrades, nElem);
    
    /* Provide the appropriate function calls 
