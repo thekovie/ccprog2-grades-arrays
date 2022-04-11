@@ -1,6 +1,7 @@
 /* 
    Names of Contributing Members:
-   NIÑO, John Kovie L.   
+   NIÑO, John Kovie L.
+   LARRAQUEL, Reign Elaiza D.
 
    Section: S15B 
 */
@@ -33,7 +34,7 @@
 
 #include <stdio.h>
 
-#define MAX 20
+#define MAX 15
 
 /* This function returns 1 if the value is a valid 
    grade point equivalent.  The possible grade point
@@ -129,7 +130,16 @@ displayAll(float aGrades[], int n)
 int
 count4(float aGrades[], int n)
 {
+     int i, count = 0;
 
+       for (i = 0; i < n; i++)
+       {
+          if (aGrades[i] == 4.0)
+          {
+          count++;
+          }
+       }
+      return count;
 }
 
 /* This function returns the number of elements in
@@ -185,15 +195,15 @@ main()
    
    /* Provide the appropriate function calls 
       based on the given printf() below: */
-   printf("Number of 4.0: ");
+   printf("Number of 4.0: %d\n", count4(aGrades, nElem));
    
-   printf("Number of Failing: ");
+   printf("Number of Failing: %d\n", countFail(aGrades, nElem));
    
-   printf("Percentage of Failing: ");
+   printf("Percentage of Failing: %.2f\n", countFail(aGrades, nElem) * 100.0 / nElem);
    
-   printf("Number of Passing: ");
+   printf("Number of Passing: %d\n", );
 
-   printf("Percentage of Passing: ");
+   printf("Percentage of Passing: %d\n", );
 
    return 0;	  
 }
