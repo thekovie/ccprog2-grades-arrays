@@ -158,7 +158,18 @@ count4(float aGrades[], int n)
 int
 countFail(float * aGrades, int n)
 {
+   int i, fail = 0;
+   
 
+    for (i = 0; i < n; i++)
+   {
+      if (*(aGrades + i) == 0.0) //must use pointer dereferencing
+      {
+         fail++;
+      }
+   }
+   
+   return fail;
 }
 
 /* This function returns the number of elements in
@@ -180,7 +191,13 @@ countFail(float * aGrades, int n)
 int
 countPass(float * aGrades, int n)
 {
-   
+   int pass, fail = 0;
+
+   fail = countFail(aGrades, n);
+
+   pass = n - fail;
+
+   return pass;
 }
 
 int
@@ -201,9 +218,9 @@ main()
    
    printf("Percentage of Failing: %.2f\n", countFail(aGrades, nElem) * 100.0 / nElem);
    
-   printf("Number of Passing: %d\n", );
+   printf("Number of Passing: %d\n", countPass(aGrades, nElem));
 
-   printf("Percentage of Passing: %d\n", );
+   printf("Percentage of Passing: %.2f\n", countPass(aGrades, nElem) * 100.0 / nElem);
 
    return 0;	  
 }
