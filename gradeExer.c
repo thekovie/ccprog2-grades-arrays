@@ -34,7 +34,7 @@
 
 #include <stdio.h>
 
-#define MAX 15
+#define MAX 20
 
 /* This function returns 1 if the value is a valid 
    grade point equivalent.  The possible grade point
@@ -163,7 +163,7 @@ countFail(float * aGrades, int n)
 
     for (i = 0; i < n; i++)
    {
-      if (*(aGrades + i) == 0.0) //must use pointer dereferencing
+      if (*(aGrades + i) == 0.0)
       {
          fail++;
       }
@@ -205,8 +205,7 @@ main()
 {
    float aGrades[MAX];
    int nElem = 0;
-   int res;    //you can use this variable to store result of function call if you wish
-   
+      
    nElem = getInputs(aGrades, MAX);
    displayAll(aGrades, nElem);
    
@@ -216,11 +215,11 @@ main()
    
    printf("Number of Failing: %d\n", countFail(aGrades, nElem));
    
-   printf("Percentage of Failing: %.2f\n", countFail(aGrades, nElem) * 100.0 / nElem);
+   printf("Percentage of Failing: %.2f%%\n", countFail(aGrades, nElem) * 100.0 / nElem);
    
    printf("Number of Passing: %d\n", countPass(aGrades, nElem));
 
-   printf("Percentage of Passing: %.2f\n", countPass(aGrades, nElem) * 100.0 / nElem);
+   printf("Percentage of Passing: %.2f%%\n", countPass(aGrades, nElem) * 100.0 / nElem);
 
    return 0;	  
 }
