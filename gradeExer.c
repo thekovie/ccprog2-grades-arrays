@@ -78,20 +78,19 @@ isValidGrade(float value)
 int
 getInputs(float aGrades[],int n)
 {
-   int i = 0;
+   int i, nElems = 0;
    float grade;
 
-   while (i < n)
+   for (i = 0; i < n; i++)
    {
-     scanf("%f", &grade);
-     if (isValidGrade(grade))
-     {
-       aGrades[i] = grade;
-       i++;
-     }
+      scanf("%f", &grade);
+      if (isValidGrade(grade)) 
+      {
+         aGrades[i] = grade;
+         nElems++;
+      }
    }
-   return i;
-
+   return nElems;
 }
 
 /* This function displays the first n entries
